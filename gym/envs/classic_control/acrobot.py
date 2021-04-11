@@ -227,11 +227,8 @@ def wrap(x, m, M):
         x: a scalar, wrapped
     """
     diff = M - m
-    while x > M:
-        x = x - diff
-    while x < m:
-        x = x + diff
-    return x
+
+    return (((x - m) % diff) + m)
 
 def bound(x, m, M=None):
     """Either have m as scalar, so bound(x,m,M) which returns m <= x <= M *OR*
